@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel News</title>
+    <link rel="stylesheet" href="sass/vendors/css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet" />
+    <script defer src="js/hamburger.js"></script>
+    <script defer src="js/test.js"></script>
+    <script
+      type="module"
+      src="responsive-image-app/js/renderImagesController.js"></script>
+    <script
+      type="module"
+      src="responsive-image-app/js/renderImages.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="hamburger">
+        <div class="hamburger__button">
+          <span class="hamburger__icon">&nbsp; </span>
+        </div>
+        <div class="hamburger__container">
+          <span class="hamburger__close-button">&#x2715;</span>
+          <div class="hamburger__list-container">
+            <ul class="hamburger__list">
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Travel Articles</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Reviews</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Festivals &amp; Events</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">News</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Competitions</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Food &amp; Drink</a>
+              </li>
+              <li class="hamburger__item">
+                <a href="#" class="hamburger__link">Subscribe</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="nav">
+        <div class="nav__container">
+          <div class="nav__left">
+            <!-- <p class="nav__logo">Travel News</p> -->
+            <img
+              src="img/travel_news_logo.png"
+              alt="travel news logo"
+              class="nav__logo" />
+          </div>
+          <ul class="nav__right">
+            <li class="nav__item nav__item--1">
+              <a href="#" class="nav__link">Travel Articles</a>
+            </li>
+            <li class="nav__item nav__item--2">
+              <a href="#" class="nav__link">Reviews</a>
+            </li>
+            <li class="nav__item nav__item--3">
+              <a href="#" class="nav__link">Festivals &amp; Events</a>
+            </li>
+            <li class="nav__item nav__item--4">
+              <a href="#" class="nav__link">News</a>
+            </li>
+            <li class="nav__item nav__item--5">
+              <a href="#" class="nav__link">Competitions</a>
+            </li>
+            <li class="nav__item nav__item--6">
+              <a href="#" class="nav__link">Food &amp; Drink</a>
+            </li>
+            <li class="nav__item nav__item--7">
+              <a href="#" class="nav__link nav__cta">Subscribe</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="hero">
+      <img
+        srcset="
+          img/pixabay/taj-mahal-420.jpeg   420w,
+          img/pixabay/taj-mahal-500.jpeg   500w,
+          img/pixabay/taj-mahal-640.jpeg   640w,
+          img/pixabay/taj-mahal-1280.jpeg 1280w,
+          img/pixabay/taj-mahal-1920.jpeg 1920w,
+          img/pixabay/taj-mahal-5472.jpeg 5472w
+        "
+        sizes="100vw"
+        alt="Taj Mihal"
+        class="hero__image"
+        src="img/pixabay/taj-mahal-1920.jpeg" />
+
+      <a href="#" class="hero__link">
+        <div class="hero__text-container">
+          <div class="hero__text">
+            The Taj Mahal: Tourist trap or set of the world's greatest love
+            story?
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <main class="page-container">
+      <h2 class="section-heading section-heading--first">
+        <span>Travel guides</span>
+      </h2>
+      <section class="travel-guides">
+        <article class="travel-guides__section-a">
+          <a href="#">
+            <img
+              srcset="
+                img/once-in-a-lifetime-400.jpeg   400w,
+                img/once-in-a-lifetime-500.jpeg   500w,
+                img/once-in-a-lifetime-600.jpeg   600w,
+                img/once-in-a-lifetime-800.jpeg   800w,
+                img/once-in-a-lifetime-1000.jpeg 1000w,
+                img/once-in-a-lifetime-1200.jpeg 1200w
+              "
+              sizes="(max-width: 37.5em) 100vw, (max-width: 75em) 50vw, 600px"
+              alt="Woman in Carnaval costume dancing"
+              src="img/once-in-a-lifetime-1200.jpeg"
+              class="lifetime" />
+
+            <div class="travel-guides__section-a__sub-1">
+              <h3 class="show-hover">
+                10 once-in-a-lifetime trips — and how to do them from a cruise
+              </h3>
+              <p class="link-discrete">
+                Spotting polar bears in the Arctic, watching the sun rise over
+                Angkor Wat or partying in Rio — whatever your wishlist, these
+                ocean adventures will get you close to the action.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <div class="travel-guides__section-b">
+          <a href="#">
+            <div class="travel-guides__section-b__container">
+              <div class="auto-resize">
+                <img
+                  src="img/lake-filled_lg-2200.jpeg"
+                  alt="Enniskillen castle by the lake"
+                  loading="lazy" />
+              </div>
+              <div class="travel-guides__section-b__sub-1">
+                <article>
+                  <h3 class="show-hover">
+                    This lake-filled spot is the UK’s best-kept foodie secret
+                  </h3>
+                  <p>
+                    Gin made with bog-foraged botanicals, seafood chowders and
+                    bao for brunch: welcome to culinary Fermanagh
+                  </p>
+                </article>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="travel-guides__section-b__container">
+              <img
+                src="img/scandi_weekend-2200.jpeg"
+                alt="Juvet Landscape Hotel"
+                loading="lazy" />
+              <div class="travel-guides__section-b__sub-1">
+                <article>
+                  <h3 class="show-hover">
+                    My Scandi weekend as a Succession billionaire
+                  </h3>
+                  <p>
+                    Jonathan Dean heads to the remote wilds of northern Norway
+                    for an electric Porsche, a mountaintop restaurant — and a
+                    scene-stealing hotel
+                  </p>
+                </article>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="travel-guides__section-b__container">
+              <img
+                src="img/guyana-2200.jpeg"
+                alt="Kaieteur Falls, Guyana"
+                loading="lazy" />
+              <div class="travel-guides__section-b__sub-1">
+                <article>
+                  <h3 class="show-hover">
+                    The captivating South American country with a new direct
+                    flight
+                  </h3>
+                  <p>
+                    The astonishing waterfalls and wildlife of Guyana are now
+                    much easier to access thanks to a new route. We have the
+                    highlights
+                  </p>
+                </article>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="travel-guides__section-b__container">
+              <img
+                src="img/Narilka fortress Tbilisi-2200.jpeg"
+                alt="Narilka fortress,
+          Tbilisi"
+                loading="lazy" />
+              <div class="travel-guides__section-b__sub-1">
+                <article>
+                  <h3 class="show-hover">
+                    Can a bot plan a holiday better than a human? We put it to
+                    the test
+                  </h3>
+                  <p>
+                    In the Georgian capital of Tbilisi, our writer pits ChatGPT
+                    against a living, breathing tour guide
+                  </p>
+                </article>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="travel-guides__section-c">
+          <a href="#" class="travel-guides__section-c__sub-1">
+            <img
+              src="img/giraffes_south_africa-2200.jpeg"
+              alt="a family of giraffes in South Africa"
+              loading="lazy" />
+            <h3 class="show-hover">
+              The affordable way to get thrillingly close to the Big Five
+            </h3>
+          </a>
+        </div>
+        <div class="travel-guides__section-c">
+          <a href="#" class="travel-guides__section-c__sub-1 auto-resize">
+            <div>
+              <img
+                src="img/six_brilliant_destinations-2200.jpeg"
+                alt="path between a valley"
+                loading="lazy" />
+
+              <!-- <img
+                src="img/six_brilliant_destinations.jpeg"
+                alt="a family of giraffes in South Africa"
+                loading="lazy" /> -->
+
+              <h3 class="show-hover">
+                Six brilliant destinations that are even better in the
+                off-season
+              </h3>
+            </div>
+          </a>
+        </div>
+        <div class="travel-guides__section-c">
+          <a href="#" class="travel-guides__section-c__sub-1">
+            <img
+              src="img/virgin_cruises-2200.jpeg"
+              alt="people drinking champagne on a cruise"
+              loading="lazy" />
+            <h3 class="show-hover">Virgin Voyages offers adult-only cruises</h3>
+          </a>
+        </div>
+
+        <div class="travel-guides__section-c">
+          <a href="#" class="travel-guides__section-c__sub-1">
+            <img
+              src="img/marbella_elix_greece-2200.jpeg"
+              alt="Marbella Eliz hotel, Greece"
+              loading="lazy" />
+            <h3 class="show-hover">
+              Win a luxury break for two in Greece with MarBella Elix and
+              Classic Collection
+            </h3>
+          </a>
+        </div>
+      </section>
+
+      <h2 class="section-heading">
+        <span>Sponsored content</span>
+      </h2>
+      <section class="sponsored-cards">
+        <div class="sponsored-cards__container">
+          <div
+            class="sponsored-cards__card sponsored-cards__card--md"
+            id="sponsored-card-1">
+            <a href="#">
+              <div class="auto-resize">
+                <img
+                  src="img/cala-llombards-shutterstock-2200.jpeg"
+                  alt="Cala Llombards, Majorca"
+                  loading="lazy"
+                  id="sponsored-card-img-1" />
+              </div>
+              <span class="sponsored-cards__destination">Majorca</span>
+              <span class="sponsored-cards__price">from £299pp</span>
+            </a>
+          </div>
+          <div class="sponsored-cards__stop-flex-wrap">
+            <div
+              class="sponsored-cards__card sponsored-cards__card--sm"
+              id="sponsored-card-2">
+              <a href="#">
+                <img
+                  src="img/barcelona-shutterstock-2200.jpeg"
+                  alt="Barcelona skyline"
+                  loading="lazy"
+                  id="sponsored-card-img-2" />
+                <span class="sponsored-cards__destination">Barcelona</span>
+                <span class="sponsored-cards__price">from £149pp</span>
+              </a>
+            </div>
+            <div
+              class="sponsored-cards__card sponsored-cards__card--sm"
+              id="sponsored-card-3">
+              <a href="#">
+                <img
+                  src="img/amsterdam-shutterstock-2200.jpeg"
+                  alt="Canal in Amsterdam"
+                  loading="lazy"
+                  id="sponsored-card-img-3" />
+                <span class="sponsored-cards__destination">Amsterdam</span>
+                <span class="sponsored-cards__price">from £199pp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="sponsored-cards__container">
+          <div class="sponsored-cards__stop-flex-wrap">
+            <div
+              class="sponsored-cards__card sponsored-cards__card--sm"
+              id="sponsored-card-4">
+              <a href="#">
+                <img
+                  src="img/fuerteventura-shutterstock-2200.jpeg"
+                  alt="Cove in Fuerteventura"
+                  loading="lazy"
+                  id="sponsored-card-img-4" />
+                <span class="sponsored-cards__destination">Fuerteventura</span>
+                <span class="sponsored-cards__price">from £299pp</span>
+              </a>
+            </div>
+            <div
+              class="sponsored-cards__card sponsored-cards__card--sm"
+              id="sponsored-card-5">
+              <a href="#">
+                <img
+                  src="img/antalya-shutterstock-2200.jpeg"
+                  alt="Analya, Turkey"
+                  loading="lazy"
+                  id="sponsored-card-img-5" />
+                <span class="sponsored-cards__destination">Antalya</span>
+                <span class="sponsored-cards__price">from £359pp</span>
+              </a>
+            </div>
+          </div>
+          <div
+            class="sponsored-cards__card sponsored-cards__card--md"
+            id="sponsored-card-6">
+            <a href="#">
+              <img
+                src="img/tenerife-shutterstock-2200.jpeg"
+                alt="Beach in Tenerife"
+                loading="lazy"
+                id="sponsored-card-img-6" />
+              <span class="sponsored-cards__destination">Tenerife</span>
+              <span class="sponsored-cards__price">from £199pp</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <h2 class="section-heading"><span>Travel news</span></h2>
+      <section class="travel-news">
+        <div class="travel-news__section-a">
+          <div class="travel-news__section-a__sub-1">
+            <a href="#">
+              <h3
+                class="show-hover travel-news__section-a__title travel-news__section-a__title--main">
+                11 hacks for navigating Walt Disney World this summer
+              </h3>
+              <p>
+                Every child dreams of going to Walt Disney World, and every
+                (most?) parent dreams of taking them there. For many families,
+                though, the cost of the trip can seem insurmountable.
+              </p>
+            </a>
+
+            <!-- <a href="#">
+              <h3
+                class="show-hover travel-news__section-a__title travel-news__section-a__title--secondary">
+                The risky things travelers do that compromise their cyber
+                security
+              </h3>
+            </a> -->
+            <!-- <a href="#">
+              <h3
+                class="show-hover travel-news__section-a__title travel-news__section-a__title--secondary">
+                The risky things travelers do that compromise their cyber
+                security
+              </h3>
+            </a> -->
+          </div>
+
+          <div class="travel-news__section-a__sub-2">
+            <a href="#">
+              <img
+                srcset="
+                  img/disney-world-400.jpeg   400w,
+                  img/disney-world-600.jpeg   600w,
+                  img/disney-world-800.jpeg   800w,
+                  img/disney-world-1000.jpeg 1000w,
+                  img/disney-world-1200.jpeg 1200w
+                "
+                sizes="(max-width: 22.8em) 95vw, (max-width: 31.25em) 96vw, (max-width: 37.5em) 97vw, (max-width: 47.5em) 47vw, (max-width: 75em) 48vw, 515px"
+                alt="Disney World"
+                src="img/disney-world-1200.jpeg" />
+            </a>
+          </div>
+        </div>
+
+        <div class="travel-news__section-c">
+          <h3
+            class="show-hover travel-news__section-c__title travel-news__section-c__title--secondary">
+            <a href="#">
+              The risky things travelers do that compromise their cyber security
+            </a>
+          </h3>
+          <h3 class="show-hover">
+            <a href="#">
+              How long will it take to renew my passport? The latest advice as
+              five-week strike confirmed
+            </a>
+          </h3>
+
+          <h3 class="show-hover">
+            <a href="#">
+              British Airways has lost another battle in the war with its Middle
+              Eastern rivals
+            </a>
+          </h3>
+          <h3 class="show-hover">
+            <a href="#">
+              How the island of La Palma bounced back after the volcanic
+              eruption
+            </a>
+          </h3>
+          <h3 class="show-hover hide-phone">
+            <a href="#">
+              The crumbling Norfolk seaside town being restored to its former
+              glory
+            </a>
+          </h3>
+          <h3 class="show-hover show-only-tab-land">
+            <a href="#"> Aito reveals 2023 Conference location </a>
+          </h3>
+        </div>
+      </section>
+      <section class="travel-news-two">
+        <div class="travel-news-two__section-a">
+          <a class="travel-news-two__section-a__container" href="#">
+            <img
+              src="img/Amsterdam-585x390-2200.jpeg"
+              alt="Amsterdam at night"
+              loading="lazy" />
+            <div>
+              <h3 class="show-hover">
+                Amsterdam: Campaign to keep out rowdy tourists
+                <span class="travel-news-two__section-a__title-long"
+                  >looking for a “messy” weekend</span
+                >
+              </h3>
+              <p>
+                Noisy stag parties, pub crawls and visits to the red light
+                district in Amsterdam are a concern.
+              </p>
+            </div>
+          </a>
+
+          <a class="travel-news-two__section-a__container" href="#">
+            <img
+              src="img/pantheon-3398466_1920-1170x781-2200.jpeg"
+              alt="Pantheon, Rome"
+              loading="lazy" />
+
+            <div>
+              <h3 class="show-hover">The Pantheon to impose an entry fee</h3>
+              <p>
+                The Pantheon - the work of angels, not men” is Rome's most
+                popular cultural site and soon will no longer be free to visit.
+              </p>
+            </div>
+          </a>
+          <a
+            class="travel-news-two__section-a__container show-tab-land-flex"
+            href="#">
+            <img
+              src="img/Brittany-Ferries-1170x814-2200.jpeg"
+              alt="Brittany ferry"
+              loading="lazy" />
+
+            <div>
+              <h3 class="show-hover">
+                Brittany Ferries ditches dual pricing on board
+              </h3>
+              <p>
+                Brittany Ferries a leading French shipping company, is changing
+                the way it displays the pricing on all its vessels.
+              </p>
+            </div>
+          </a>
+          <a
+            class="travel-news-two__section-a__container show-tab-land-flex"
+            href="#">
+            <img
+              src="img/mountain-lion-2200.jpeg"
+              alt="Mountain lion"
+              loading="lazy" />
+
+            <div>
+              <h3 class="show-hover">
+                Mountain lion attacks tourist in a pool in Colorado
+              </h3>
+              <p>
+                The visitor suffered scratches on his head before the predator
+                fled to higher ground.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="travel-news-two__section-b">
+          <article class="travel-news-two__section-b__sub-1 hide-tab-land">
+            <a href="#">
+              <img
+                src="img/Brittany-Ferries-1170x814-2200.jpeg"
+                alt="Brittany ferry"
+                loading="lazy" />
+
+              <h3 class="show-hover">
+                Brittany Ferries ditches dual pricing on board
+              </h3>
+              <p>
+                Brittany Ferries a leading French shipping company, is changing
+                the way it displays the pricing on all its vessels.
+              </p>
+            </a>
+          </article>
+
+          <article class="travel-news-two__section-b__sub-1 hide-tab-land">
+            <a href="#">
+              <img
+                src="img/mountain-lion-2200.jpeg"
+                alt="Mountain Lion"
+                loading="lazy" />
+
+              <h3 class="show-hover">
+                Mountain lion attacks tourist in a pool in Colorado
+              </h3>
+              <p>
+                The visitor suffered scratches on his head before the predator
+                fled to higher ground.
+              </p>
+            </a>
+          </article>
+
+          <article class="travel-news-two__section-b__sub-1 hide-tab-land">
+            <a href="#">
+              <img
+                src="img/aito-conference-2200.jpeg"
+                alt="Thessaloniki, Greece"
+                loading="lazy" />
+
+              <h3 class="show-hover">Aito reveals 2023 conference location</h3>
+              <p>
+                Aito revealed Thessaloniki in Greece as the location for its
+                2023 overseas conference ...
+              </p>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <nav>
+          <h4 class="footer__header">Navigation</h4>
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link">Travel Articles</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Reviews</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Festivals &amp; Events</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">News</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Compeitions</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Food &amp; Drink</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h4 class="footer__header">Company</h4>
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link">About</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Blog</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Work for Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__header">Legal</h4>
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link">Privacy Policy</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Terms &amp; Conditions</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Cookie Policy</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__header">Help</h4>
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link">Contact</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">FAQs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "auto_resize",
+  "version": "1.0.0",
+  "description": "auto-resize",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Chris Enoch",
+  "license": "ISC",
+  "dependencies": {
+    "jimp": "^0.3.5",
+    "uuid": "^9.0.0"
+  }
+}
