@@ -1,5 +1,7 @@
 export { runScript }
 
+let loadOriginalImageOnErrorArrGlobal = [];
+
 function runScript(availableWidths) {
     if (availableWidths < 1) {
         throw new Error('you must pass an array of available image widths before this script can be started');
@@ -15,6 +17,12 @@ function runScript(availableWidths) {
 }
 
 function renderImagesOnResize(images, availableWidths) {
+    //clear loadOriginalImageOnErrorArrGlobal
+    loadOriginalImageOnErrorArrGlobal.forEach((ele) => {
+        ele.count = 0;
+    });
+
+
     //render a new size for existing images
     renderImages(images, availableWidths, false);
 
@@ -24,6 +32,27 @@ function renderImagesOnResize(images, availableWidths) {
 
     //update global images array;
     images.push(...newImages); //Maintain reference to original images array passed into function. Do not return a new array here. E.g. do not do this: images = [...images, ...newImages];
+}
+
+function loadOriginalImageOnErrorHelper(image, countObj, srcOriginal) {
+    if (countObj.count < 1) {
+        image.src = srcOriginal;
+        countObj.count++;
+
+    } else {
+        console.log("remove event listener");
+        image.removeEventListener('error', loadOriginalImageOnErrorHelper);
+    }
+}
+
+function loadOriginalImageOnError(image) {
+    let countObj = {
+        count: 0
+    }
+    loadOriginalImageOnErrorArrGlobal.push(countObj); //add count Obj to global array
+
+    let srcOriginal = image.src;
+    image.addEventListener('error', () => loadOriginalImageOnErrorHelper(image, countObj, srcOriginal));
 }
 
 function renderImages(images, availableWidths, isFirstRender) { //imageContainerClass is the class that signifies that its child image should be resized
@@ -38,9 +67,10 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
         //If JavaScript tries to load an image that does not exist, load the original image
         let srcOriginal = image.src;
         if (isFirstRender) {
-            image.addEventListener('error', () => {
-                image.src = srcOriginal;
-            })
+            loadOriginalImageOnError(image);
+            // image.addEventListener('error', () => {
+            //     image.src = srcOriginal;
+            // })
         }
 
         let imageContainer = findClosestParentWithClass(image, imageContainerClass);
