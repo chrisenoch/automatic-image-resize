@@ -49,7 +49,7 @@ function resizeImage(imagePath, newImageName, quality, width, height) {
 }
 
 let widths = [400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 1800, 2000, 2100, 2200];
-
+let quality = 75;
 let count = 0;
 const pathSeparator = path.sep;
 images.forEach((image) => {
@@ -60,6 +60,6 @@ images.forEach((image) => {
         let currentName = imageStart.substring(imageStart.lastIndexOf(pathSeparator) + 1);
         let newName = currentName + '-' + width;
         console.log(count);
-        resizeImage(image, newName, 75, width, false);
+        resizeImage(image, newName, quality, width, false);
     })
 });

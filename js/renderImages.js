@@ -34,6 +34,15 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
 
     let imageContainerClass = isFirstRender ? 'auto-resize' : 'was-auto-resized';
     images.forEach((image) => {
+
+        //If JavaScript tries to load an image that does not exist, load the original image
+        let srcOriginal = image.src;
+        if (isFirstRender) {
+            image.addEventListener('error', () => {
+                image.src = srcOriginal;
+            })
+        }
+
         let imageContainer = findClosestParentWithClass(image, imageContainerClass);
         if (!imageContainer) {
             console.error("Error: - No imageContainer detected. Each image should have one image container");
