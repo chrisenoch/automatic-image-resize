@@ -14,7 +14,9 @@ function runScript(availableWidths) {
     });
 }
 
+
 function renderImagesOnResize(images, availableWidths) {
+
     //render a new size for existing images
     renderImages(images, availableWidths, false);
 
@@ -35,12 +37,9 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
     let imageContainerClass = isFirstRender ? 'auto-resize' : 'was-auto-resized';
     images.forEach((image) => {
 
-        //If JavaScript tries to load an image that does not exist, load the original image
-        let srcOriginal = image.src;
+        //If JavaScript tries to load an image that does not exist, load the image that was originally specified in the src attribute
         if (isFirstRender) {
-            image.addEventListener('error', () => {
-                image.src = srcOriginal;
-            })
+            loadOriginalImageOnError(images, image);
         }
 
         let imageContainer = findClosestParentWithClass(image, imageContainerClass);
@@ -90,6 +89,32 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
 
     });
 
+}
+
+function loadOriginalImageOnError(images, image) {
+    let srcOriginal = image.src;
+    let countObj = {
+        count: 0
+    }
+
+    image.addEventListener('error', () => {
+        helper(images, image, srcOriginal, countObj)
+    });
+
+    function helper(images, image, srcOriginal, countObj) {
+        if (countObj.count < 1) { //Stops setting the src if an error has just occured. This prevents infinite recursion
+            image.src = srcOriginal;
+            //remove image from global images array so if the screen is resized, we don't try to resize the image again. 
+            let index = images.indexOf(image);
+            if (index > -1) {
+                console.log("about to remove image");
+                images.splice(index, 1);
+            }
+            console.log("about to remove event listener");
+            image.removeEventListener('error', helper);
+            countObj.count++;
+        }
+    }
 }
 
 //returns the size extension of the image if exists or returns empty string
