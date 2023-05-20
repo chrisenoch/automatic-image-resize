@@ -28,34 +28,6 @@ function renderImagesOnResize(images, availableWidths) {
     images.push(...newImages); //Maintain reference to original images array passed into function. Do not return a new array here. E.g. do not do this: images = [...images, ...newImages];
 }
 
-
-
-function loadOriginalImageOnError(images, image) {
-    let srcOriginal = image.src;
-    let countObj = {
-        count: 0
-    }
-
-    image.addEventListener('error', () => {
-        helper(images, image, srcOriginal, countObj)
-    });
-
-    function helper(images, image, srcOriginal, countObj) {
-        if (countObj.count < 1) {
-            image.src = srcOriginal;
-            //remove image from global images array so if screen resized, we don't try to render the image
-            let index = images.indexOf(image);
-            if (index > -1) {
-                console.log("about to remove image");
-                images.splice(index, 1);
-            }
-            console.log("about to remove event listener");
-            image.removeEventListener('error', helper);
-            countObj.count++;
-        }
-    }
-}
-
 function renderImages(images, availableWidths, isFirstRender) { //imageContainerClass is the class that signifies that its child image should be resized
     if (images.length === 0) {
         return;
@@ -65,13 +37,9 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
     let imageContainerClass = isFirstRender ? 'auto-resize' : 'was-auto-resized';
     images.forEach((image) => {
 
-        //If JavaScript tries to load an image that does not exist, load the original image
-        let srcOriginal = image.src;
+        //If JavaScript tries to load an image that does not exist, load the image that was originally specified in the src attribute
         if (isFirstRender) {
             loadOriginalImageOnError(images, image);
-            // image.addEventListener('error', () => {
-            //     image.src = srcOriginal;
-            // })
         }
 
         let imageContainer = findClosestParentWithClass(image, imageContainerClass);
@@ -121,6 +89,32 @@ function renderImages(images, availableWidths, isFirstRender) { //imageContainer
 
     });
 
+}
+
+function loadOriginalImageOnError(images, image) {
+    let srcOriginal = image.src;
+    let countObj = {
+        count: 0
+    }
+
+    image.addEventListener('error', () => {
+        helper(images, image, srcOriginal, countObj)
+    });
+
+    function helper(images, image, srcOriginal, countObj) {
+        if (countObj.count < 1) { //Stops setting the src if an error has just occured. This prevents infinite recursion
+            image.src = srcOriginal;
+            //remove image from global images array so if the screen is resized, we don't try to resize the image again. 
+            let index = images.indexOf(image);
+            if (index > -1) {
+                console.log("about to remove image");
+                images.splice(index, 1);
+            }
+            console.log("about to remove event listener");
+            image.removeEventListener('error', helper);
+            countObj.count++;
+        }
+    }
 }
 
 //returns the size extension of the image if exists or returns empty string
