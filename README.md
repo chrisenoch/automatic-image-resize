@@ -1,5 +1,4 @@
 # automatic-image-resize
-Automatically inserts the correct image depending on Device Pixel Ratio and screen size
 
 # What this app does  
 Automatically inserts the correct image depending on Device Pixel Ratio and screen size.
@@ -38,7 +37,7 @@ With this app, it is not extra effort to add more image sizes to the HTML. The e
 Imagine how large the `srcset` content would be if you included all of these image sizes using `srcset`.
 
 # Example App
-Understanding how to use this app is much easier if you see an example. See: [travelnews](]https://github.com/chrisenoch/travelnews) and pay particular attention to the following:
+Understanding how to use this app is much easier if you see an example. See: [travelnews](https://github.com/chrisenoch/travelnews) and pay particular attention to the following:
 - How the images are named in the img directory. (For this app images must be named **<image_name>-<width_size>.<file_extension>** E.g. `aito-conference-2200.jpeg`
 - The elements with the class “auto-resize” in the index.html file
 - Files in the sass/layout directory that include the classes auto-resize and was-auto-resized. See [here](https://github.com/chrisenoch/travelnews/blob/develop/sass/layout/_travel-guides.scss) 
@@ -81,14 +80,14 @@ tenerife-600.jpeg
 ```
 
 ## Step 2
-This Step explains how to use the included program resize-images.js to resize images in batch. You can skip to Step 3 if you will do this your own way.
+This Step explains how to use the included program `resize-images.js` to resize images in batch. You can skip to Step 3 if you will do this your own way.
 
-**Warning**: `resize-images.js`. modifies files on your computer. This program is intended as a starting poitn for you to use. Do not use if you do not understand the code.
+**Warning**: `resize-images.js`. modifies files on your computer. This program is intended as a starting point for you to use. Do not use if you do not understand the code.
 
 If you decide to use `resizeImages.js` , add the desired widths to the `widths` array. E.g. if you want every image to have the sizes 400, 800 and 1000, you would add these values to the widths array. 75% quality is used because it is arguably a good trade-off between quality and file size. This is also the default quality used for image-resizing in Next.js as you can see [here](https://nextjs.org/docs/pages/api-reference/components/image) Feel free to change the quality as you see fit. 
 
 **Terminology**
-- **width suffix** For the image `tenerife-800.jpeg`,  **-800.jpeg** is the width suffix. <dash>.<number>.<file_extension>
+- **width suffix** For the image `tenerife-800.jpeg`,  **-800.jpeg** is the width suffix. _(a dash followed by a number followed by the file extension)_.
 - **base image** - An image with no width suffix in the name, which is used to generate all other size variations of the image.
 
 For every image you want the program to create an image for, ensure that there is at least one base image in the appropriate directory. Images with a width suffix will be ignored. The program uses these base images as a base to generate other images. The larger the size and the higher the quality of this base image, the higher the quality will be of the images this app generates.
@@ -115,10 +114,11 @@ For the above array, you need every image being rendered by this app to have the
 
 ### Incorrect example:
 In this example only the image `guyana-1800.jpeg` is available on the file system.
+```
 //renderImagesController.js
 const availableWidths = [1800, 2200];
-
-Here, the developer has forgotten to add the image `guyana-2200.jpeg` to the file system. This could result in the `src` attribute of the HTML being set to guyana-2200.jpeg. This would fail as the image does not exist. Upon error, the program would try to load the image you originally specified in the `src` attribute in the HTML. See the previous paragraph for more information on this.
+```
+Here, the developer has forgotten to add the image `guyana-2200.jpeg` to the file system. This could result in the `src` attribute of the HTML being set to `guyana-2200.jpeg`. This would fail as the image does not exist. Upon error, the program would try to load the image you originally specified in the `src` attribute in the HTML. See the previous paragraph for more information on this.
 
 ## Step 4
 In your HTML code, ensure that for each image you want to be rendered using this app is inside a container with the class `auto-resize`. In the following example the container is a `div`, but 
@@ -138,7 +138,7 @@ to provide a correctly-named image of a size you added to the `availableWidths` 
 image. E.g. if you include `src="img/guyana-2200.jpeg`, then all the size variations (e.g. `guyana-400.jpeg, guyana-600.jpeg, …, guyana-2200.jpeg`) must be in the same folder. 
 See [this images folder](https://github.com/chrisenoch/travelnews/tree/develop/img) and [this index.html file](https://github.com/chrisenoch/travelnews/blob/develop/index.html) for an example.
 
-`src` is also set for SEO purposes. It** does not serve as a back-up should the JavaScript program fail or if the user has disabled JavaScript in the browser**. In this case, no image would be rendered at all. 
+`src` is also set for SEO purposes. It **does not serve as a back-up should the JavaScript program fail or if the user has disabled JavaScript in the browser**. In this case, no image would be rendered at all. 
 
 **Do not use srcset** on images you want to be rendered with this application. If you do, the app will not work correctly.
 
@@ -146,7 +146,7 @@ See [this images folder](https://github.com/chrisenoch/travelnews/tree/develop/i
 Ensure the container with the class `auto-resize` occupies the width and height you want the image to occupy. The width and height of the container must not depend on the nested image as the image will not be present when the app is loaded. To test you have styled the container correctly, you can delete the image using the DevTools (deleteElement in Chrome) when you inspect the HTML. If the width and height of the container are what you expect the image to be when it is loaded, you have styled the container correctly. The reason this is necessary is because `renderImages.js` measures the height and width of the container and renders an image of an appropriate size based on this.
 
 ## Step 6
-To define the height and width of the containers use the class 'was-auto-resized` and `auto-resize` in your CSS. At load time each container with the class `auto-resize` has the class `auto-resize` replaced with the class 'was-auto-resized` The purpose of the class `auto-resize` is to allow the app to get the width and height dimensions of the container and to ensure the browser does not download an image before the JavaScript has decided the most appropriate image to load. The purpose of 'was-auto-resized` is to ensure the app continues to function and that the most appropriate image is shown if the user resizes the screen.
+To define the height and width of the containers use the class `was-auto-resized` and `auto-resize` in your CSS. At load time each container with the class `auto-resize` has the class `auto-resize` replaced with the class `was-auto-resized` The purpose of the class `auto-resize` is to allow the app to get the width and height dimensions of the container and to ensure the browser does not download an image before the JavaScript has decided the most appropriate image to load. The purpose of `was-auto-resized` is to ensure the app continues to function and that the most appropriate image is shown if the user resizes the screen.
 
 ### Correct example of styling an image container
 ```
