@@ -1,5 +1,8 @@
 # automatic-image-resize
 
+# Example app
+See [travelnews](https://github.com/chrisenoch/travelnews) to see the program in use
+
 # What this app does  
 Automatically inserts the correct image depending on Device Pixel Ratio and screen size.
 
