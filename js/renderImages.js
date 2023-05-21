@@ -1,5 +1,12 @@
 export { runScript }
 
+/* IMPORTANT
+This app works correcty but it is not 100% finished. I still need to:
+- Document code throughly. 
+- Write tests for the code.
+You can see examples of my testing and documentation in my Java projects on GitHub. E.g. "lessonplan-website, "datingwebsite," "costofliving-rest-api"
+*/
+
 function runScript(availableWidths) {
     if (availableWidths < 1) {
         throw new Error('you must pass an array of available image widths before this script can be started');
