@@ -38,8 +38,8 @@ Imagine how large the `srcset` content would be if you included all of these ima
 
 # Example App
 **Understanding how to use this app is much easier** if you see an example. See: [travelnews](https://github.com/chrisenoch/travelnews) and pay particular attention to the following:
-- How the images are named in the img directory. (For this app images must be named **<image_name>-<width_size>.<file_extension>** E.g. `aito-conference-2200.jpeg`
-- The elements with the class “auto-resize” in the index.html file
+- How the images are named in the `img`  directory. (For this app images must be named **<image_name>-<width_size>.<file_extension>** E.g. `aito-conference-2200.jpeg`
+- The elements with the class `auto-resize` in the index.html file
 - Files in the sass/layout directory that include the classes auto-resize and was-auto-resized. See [here](https://github.com/chrisenoch/travelnews/blob/develop/sass/layout/_travel-guides.scss) 
 - The files in the js directory
 
