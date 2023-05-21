@@ -87,7 +87,7 @@ This Step explains how to use the included program `resize-images.js` to resize 
 
 **Warning**: `resize-images.js`. modifies files on your computer. This program is intended as a starting point for you to use. Do not use if you do not understand the code.
 
-If you decide to use `resizeImages.js` , add the desired widths to the `widths` array. E.g. if you want every image to have the sizes 400, 800 and 1000, you would add these values to the widths array. 75% quality is used because it is arguably a good trade-off between quality and file size. This is also the default quality used for image-resizing in Next.js as you can see [here](https://nextjs.org/docs/pages/api-reference/components/image) Feel free to change the quality as you see fit. 
+If you decide to use `resizeImages.js` , add the desired widths to the `widths` array. E.g. if you want every image to have the sizes 400, 800 and 1000, you would add these values to the `widths` array. 75% quality is used because it is arguably a good trade-off between quality and file size. This is also the default quality used for image-resizing in Next.js as you can see [here](https://nextjs.org/docs/pages/api-reference/components/image) Feel free to change the quality as you see fit. 
 
 **Terminology**
 - **width suffix** For the image `tenerife-800.jpeg`,  **-800.jpeg** is the width suffix. _(a dash followed by a number followed by the file extension)_.
@@ -191,7 +191,7 @@ When the screen is resized, the correct image is inserted if the size of the ima
 
 # Positive features of the app
 - Once you know how to use this app and have it set-up, it is very easy to use and it will save you lots of time.
-- The best available image is selected according to the exact screen size (to the nearest pixel). The advantage of using this app instead of srcset is that srcset only covers the cases that you explicitly tell it to.
+- The best available image is selected according to the exact screen size (to the nearest pixel). The advantage of using this app instead of `srcset` is that `srcset` only covers the cases that you explicitly tell it to.
 
 # Limitations
 1. As the images are loaded with JavaScript, the images will not load as fast as they would if JavaScript were not used.
